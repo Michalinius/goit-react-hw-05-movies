@@ -1,0 +1,28 @@
+.container {
+    margin-top: 10px;
+    padding: 0 3px;
+}
+
+.link {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.container {
+    display: flex;
+    padding: 10px 0;
+}
+
+.info {
+    margin-left: 20px;
+}
+
+.additional_info {
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+}
+
+.itemLink {
+    margin-bottom: 5px;
+}
