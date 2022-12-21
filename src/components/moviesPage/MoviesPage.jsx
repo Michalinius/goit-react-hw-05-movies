@@ -2,7 +2,6 @@ import { useState } from "react";
 import { getMovieByQuery } from "../../utils/API/api";
 import { useSearchParams, useLocation, Link } from 'react-router-dom';
 import Searchbar from "../searchbar/Searchbar";
-import styles from "./moviesPage.module.css"
 import { useEffect } from "react";
 
 

@@ -13,24 +13,23 @@ const Reviews = () => {
         getMovieReviews(movieId).then(res => setReviews(res.results))
     }, [movieId])
 
-    setTimeout(() => {
-        console.log(reviews)
-
-    }, 2000);
+    console.log(reviews)
 
     return (
-        <div>
-            <ul>
-                {reviews.map((element) => {
-                    return (
-                        <li key={element.id}>
-                            <h3>Author: {element.author}</h3>
-                            <p>{element.content}</p>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
+        (reviews.length)
+            ? <div>
+                <ul>
+                    {reviews.map((element) => {
+                        return (
+                            <li key={element.id}>
+                                <h3>Author: {element.author}</h3>
+                                <p>{element.content}</p>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+            : "We don't have any reviews for this movie."
     );
 }
 

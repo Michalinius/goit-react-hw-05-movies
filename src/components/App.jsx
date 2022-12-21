@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
-import { getTrending } from "../utils/API/api";
 import HomePage from "./homePage/HomePage";
 import SharedLayout from "./sharedLayout/SharedLayouts";
 import MoviesPage from "./moviesPage/MoviesPage";

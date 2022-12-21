@@ -4,10 +4,9 @@ import styled from "styled-components";
 import { getMovieCredits } from "../../utils/API/api";
 
 
-const actors = styled.ul`
+const Actors = styled.ul`
 display:flex;
-flex-direction:column;
-`
+flex-direction:column;`
 
 const Cast = () => {
 
@@ -18,16 +17,10 @@ const Cast = () => {
         getMovieCredits(movieId).then(res => setCredits(res.cast))
     }, [movieId])
 
-    setTimeout(() => {
-        console.log(credits)
-
-    }, 2000);
-
-
     return (
         <>
             <div>
-                <actors>
+                <Actors>
                     {credits.map((element) => {
                         return (
                             <li key={element.id}>
@@ -36,7 +29,7 @@ const Cast = () => {
                             </li>
                         )
                     })}
-                </actors>
+                </Actors>
             </div>
         </>
     );

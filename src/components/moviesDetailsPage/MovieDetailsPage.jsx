@@ -1,10 +1,7 @@
-import { useState, lazy, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { getMovieDetails } from '../../utils/API/api';
 import styles from "./movieDetailsPage.module.css"
-
-const Cast = lazy(() => import('../cast/Cast'))
 
 const MovieDetailsPage = () => {
 
@@ -13,10 +10,10 @@ const MovieDetailsPage = () => {
     const [movie, setMovie] = useState(null)
 
     useEffect(() => {
-        getMovieDetails(movieId).then(res => setMovie(res))
+        if (movieId)
+            getMovieDetails(movieId).then(res => setMovie(res))
     }, [movieId])
 
-    console.log(movie)
     const back = location.state?.from ?? '/movies';
 
     if (!movie) return "Please wait"
@@ -32,7 +29,7 @@ const MovieDetailsPage = () => {
                         width="200"
                     />
                     <div className={styles.info}>
-                        <h2 className={styles.title}>
+                        <h2>
                             {movie.title} ({movie?.release_date.slice(0, 4)})
                         </h2>
                         <p>
