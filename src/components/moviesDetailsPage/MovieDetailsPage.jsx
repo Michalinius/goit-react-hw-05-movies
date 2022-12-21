@@ -5,23 +5,29 @@ import styles from "./movieDetailsPage.module.css"
 
 const MovieDetailsPage = () => {
 
-    const location = useLocation()
+    const [link, setLink] = useState(null)
     const { movieId } = useParams()
     const [movie, setMovie] = useState(null)
+    const location = useLocation();
 
     useEffect(() => {
         if (movieId)
             getMovieDetails(movieId).then(res => setMovie(res))
     }, [movieId])
 
-    const back = location.state?.from ?? '/movies';
+    // const back = location.state?.from ?? '/movies';
+
+    useEffect(() => {
+        if (location.state)
+            setLink(location.state.from)
+    }, [location])
 
     if (!movie) return "Please wait"
 
     return (
         <>
             <div>
-                <Link to={back}>Go back</Link>
+                <Link to={link}>Go back</Link>
                 <div className={styles.container}>
                     <img
                         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
