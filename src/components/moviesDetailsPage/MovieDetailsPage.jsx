@@ -15,8 +15,6 @@ const MovieDetailsPage = () => {
             getMovieDetails(movieId).then(res => setMovie(res))
     }, [movieId])
 
-    // const back = location.state?.from ?? '/movies';
-
     useEffect(() => {
         if (location.state)
             setLink(location.state.from)
